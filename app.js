@@ -26,7 +26,7 @@ const devPokemones = async() => {
             const res = await fetch ('https://pokeapi.co/api/v2/pokemon/')
             const data = await res.json()
             console.log(data.results)
-            const arrayNombres= data.results.map (poke => poke.name) 
+            const arrayNombres= data.results.filter (poke => poke.name ==='bulbasaur') 
                 console.log(arrayNombres)
             
 

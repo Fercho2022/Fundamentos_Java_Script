@@ -1,43 +1,12 @@
+const http= require ('http');
+const server= http.createServer((req, res)=>{
 
-const {frutas, dinero} = require ('./frutas')
-
-const cowsay = require("cowsay");
-
-console.log(cowsay.say({
-    text : "Hola amigos de bluuweb",
-    e : "oO",
-    T : "U "
-}));
-
-
-frutas.forEach(item =>{
-
-    console.count(item)
+    res.end('estoy respondiendo a tu solicitudad v.3')
 
 
 })
 
-
-
-
-const devPokemones = async() => {
-
-        try{
-            const res = await fetch ('https://pokeapi.co/api/v2/pokemon/')
-            const data = await res.json()
-            console.log(data.results)
-            const arrayNombres= data.results.filter (poke => poke.name ==='bulbasaur') 
-                console.log(arrayNombres)
-            
-
-
-        }catch(error){
-
-            console.log(error)
-        }
-
-
-
-}
-
-devPokemones()
+const puerto= 3000;
+server.listen(puerto, ()=> {
+    console.log('escuchando solicitudes')
+})

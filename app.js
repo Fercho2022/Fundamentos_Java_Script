@@ -22,7 +22,7 @@ app.get('/servicios', (req, res) => {
 })
 
 
-server.listen (port, ()=>{
+app.listen (port, ()=>{
 
     console.log('servidor a su servicio en el puerto', port)
 })

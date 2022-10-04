@@ -1,12 +1,28 @@
-const http= require ('http');
-const server= http.createServer((req, res)=>{
 
-    res.end('estoy respondiendo a tu solicitudad v.3')
+const express = require("express");
 
+const app= express();
 
+const port =3000;
+
+//motor de plantilla
+app.set("view engine", "ejs");
+app.set('views', __dirname + '/views');
+
+app.use(express.static(__dirname + "/public"))
+
+app.get('/', (req, res) =>{
+
+    res.render('index', {titulo: "mi titulo dinámico"})
 })
 
-const puerto= 3000;
-server.listen(puerto, ()=> {
-    console.log('escuchando solicitudes')
+app.get('/servicios', (req, res) => {
+
+    res.render('servicios', {tituloServicio: "Este es un mensaje dinamico de servicios"})
+})
+
+
+app.listen (port, ()=>{
+
+    console.log('servidor a su servicio en el puerto', port)
 })

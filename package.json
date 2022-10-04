@@ -4,12 +4,15 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node app"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cowsay": "^1.5.0"
+    "bootstrap": "^5.2.1",
+    "cowsay": "^1.5.0",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1"
   }
 }

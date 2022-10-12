@@ -3,23 +3,21 @@ const express = require("express");
 
 const app= express();
 
-const port =process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 //motor de plantilla
 app.set("view engine", "ejs");
+
 app.set('views', __dirname + '/views');
 
-app.use(express.static(__dirname + "/public"))
+app.use(express.static(__dirname + "/public"));
 
-app.get('/', (req, res) =>{
 
-    res.render('index', {titulo: "mi titulo dinámico"})
-})
+// Rutas web
 
-app.get('/servicios', (req, res) => {
+app.use('/', require('./router/RutasWeb'));
+app.use('/mascotas', require('./router/Mascotas'));
 
-    res.render('servicios', {tituloServicio: "Este es un mensaje dinamico de servicios"})
-})
 
 
 app.listen (port, ()=>{

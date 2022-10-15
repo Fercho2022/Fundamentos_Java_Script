@@ -35,11 +35,11 @@ router.post('/', async (req, res) =>{
         try {
                 // una de las formas para guardar una nuevo objeto mascota  en mongoDB:
 
-                // const mascotaDB=new Mascota(body)
-                // await mascotaDB.save()
+                const mascotaDB=new Mascota(body)
+                await mascotaDB.save()
 
                 // Segunda forma para guardar en mongoDB:
-                Mascota.create(body)
+                //Mascota.create(body)
 
 
                res.redirect('/mascotas')

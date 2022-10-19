@@ -20,7 +20,9 @@
                     <th scope="row"><%=element.id  %> </th>
                         <td><%=element.nombre %> </td>
                         <td><%=element.descripcion  %> </td>
-                        <td>@mdo</td>
+                        <td><a class="btn btn-warning btn-sm" href="mascotas/<%= element.id %>">
+                            Editar
+                          </a></td>
 
                 </tr>
             <% })    %> 

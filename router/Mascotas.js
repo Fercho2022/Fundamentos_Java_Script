@@ -1,12 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const Mascota=require('../models/mascota')
-const bodyParser=require ('body-parser')
 
-// parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({ extended: false }))
-// parse application/json
-app.use(bodyParser.json())
+
 
 
 
@@ -96,6 +92,33 @@ router.put('/:id', async(req, res) =>{
 
                })
         }
+
+})
+
+router.delete('/:id', async (req, res) =>{
+
+        const id = req.params.id
+
+        try{
+                const mascotaDB= await Mascota.findByIdAndDelete({_id: id})
+                console.log(mascotaDB)
+                if (!mascotaDB){
+                        res.json({
+
+                                estado:false,
+                                mensaje: 'No se puede eliminar'
+                        })
+                }else {
+
+                        res.json({
+                                estado: true,
+                                mensaje: 'Eliminado'
+                        })
+                }
+
+        }catch (error){
+                console.log(error)
+}
 
 })
 

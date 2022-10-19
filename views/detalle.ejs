@@ -18,8 +18,9 @@
 
                 <input type="text" class="form-control my-2" name="nombre" value="<%=mascota.nombre %>">
                 <input type="text" class="form-control my-2" id="descInput" name="descripción" value="<%=mascota.descripcion %>">
-                <button class="btn btn-warning btn-block form-control mt-2" type="submit">Editar</button>
-
+                <button class="btn btn-warning btn-block mt-2" type="submit">Editar</button>
+               
+                <button id="btnEliminar" class="btn btn btn-success btn-block mt-2"  data-id="<%= mascota.id%>">Eliminar</button>
 
 
 
@@ -36,6 +37,41 @@
 
  <script>
 
+
+
+const btnEliminar=document.querySelector('#btnEliminar');
+btnEliminar.addEventListener('click', async () =>{
+
+    const id=btnEliminar.dataset.id
+
+        try{
+            const data= await fetch (`/mascotas/${id}`, {method: 'delete'}) 
+                
+            
+
+            const res=await data.json()
+
+            if (res.estado){
+                window.location.href= '/mascotas'
+                console.log(res)
+
+
+                }else{
+                    console.log(res)
+                }
+
+               
+
+        }catch (error){
+            console.log(error)
+
+
+        }
+})
+
+</script> 
+ 
+<script>
 const formEditar=document.querySelector('#formularioEditar');
 
 formEditar.addEventListener('submit', async (e) =>{
